@@ -13,7 +13,7 @@
 ```lua
 require 'API.lua'
 
-if setFps(60) then 
-  showMsgBox("FPS is set to <cg>60</c>", "Success!", 400)
+if setFPS(60) then 
+  showMessageBox("FPS is set to <cg>60</c>", "Success!", 400)
 end
 ```
