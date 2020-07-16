@@ -27,6 +27,7 @@ end
 
 function showMsgBox(message,title,size,delay)
   delay = delay or 100
+  size = size or 300
   local script = [[
     define(address,"libcocos2d.cocos2d::CCApplication::run"+A3)
     alloc(newmem,$1000)
