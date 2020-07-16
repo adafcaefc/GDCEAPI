@@ -1,4 +1,5 @@
 function setFPS(f)
+  if f==0 then return false end  
   local script = [[
     define(address,"libcocos2d.cocos2d::CCApplication::setAnimationInterval")
     alloc(newmem,$1000)
@@ -16,10 +17,9 @@ function setFPS(f)
       jmp newmem
     return:
   ]]
-  if f==0 then return false end
+  if not autoAssemble(script) then return false end
   local function w(t,a,v)return({writeDouble})[t](getAddress(a),v)end
   local function r(t,a)return({readDouble})[t](getAddress(a))end
-  if not autoAssemble(script) then return false end
   w(1,"fps_control_value",f)
   return r(1,"fps_control_value")==f
 end
@@ -96,9 +96,9 @@ function showMessageBox(message,title,size,delay)
       nop
     return:
   ]]
+  if not autoAssemble(script) then return false end
   local function w(t,a,v)return({writeString,writeFloat,writeBytes,writeInteger})[t](getAddress(a),v)end
   local function r(t,a)return({readInteger})[t](getAddress(a))end
-  if not autoAssemble(script) then return false end
   w(1,"MSGBOX_message_field",message)
   w(3,"MSGBOX_message_field+"..("%x"):format(#message),0)
   w(1,"MSGBOX_title_field",title)
