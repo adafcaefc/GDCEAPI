@@ -24,7 +24,6 @@ function setFPS(f)
   return r(1,"fps_control_value")==f
 end
 
-
 function showMessageBox(message,title,size,delay)
   delay = delay or 100
   size = size or 300
