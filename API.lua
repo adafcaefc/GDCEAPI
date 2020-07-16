@@ -1,4 +1,4 @@
-function setFps(f)
+function setFPS(f)
   local script = [[
     define(address,"libcocos2d.cocos2d::CCApplication::setAnimationInterval")
     alloc(newmem,$1000)
@@ -25,7 +25,7 @@ function setFps(f)
 end
 
 
-function showMsgBox(message,title,size,delay)
+function showMessageBox(message,title,size,delay)
   delay = delay or 100
   size = size or 300
   local script = [[
