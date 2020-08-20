@@ -5,7 +5,6 @@
 
 ----
 
-**GDDocs** is a project built to openly give advanced information and readable information for aspiring developers looking to interface with Geometry Dash. Primarily, we aim to create this as a website for people to learn more about the inner workings of geometry dash, along with it's data.
 
 ## Example
 **You will require Cheat Engine `>=7.1` to run this API.**
