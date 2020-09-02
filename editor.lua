@@ -141,8 +141,10 @@ function add_object_asm(object_data)
   -- RETURN TO NORMAL RUN ROUTINE
   autoAssemble(
     [[
+		
       libcocos2d.cocos2d::CCApplication::run+A3:
         cmp [esi+00000095],al
+		
     ]]
   )
 
