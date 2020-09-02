@@ -1,5 +1,5 @@
 function add_object_asm(object_data)
-	
+
   -- PAUSE RUN ROUTINE TO AVOID CRASH
   autoAssemble(
     [[
@@ -7,10 +7,10 @@ function add_object_asm(object_data)
         jmp libcocos2d.cocos2d::CCApplication::run+315
     ]]
   )
-	
+
   -- SLEEP TO AVOID CRASH
   sleep(1000)
-	
+
   -- MAIN FUNCTION
   autoAssemble(
     [[
@@ -41,10 +41,6 @@ function add_object_asm(object_data)
         push esi
         push edi
         mov edi,ecx
-        mov ecx,[edi+00000290]
-        mov eax,[ecx+00000398]
-        sub eax,[ecx+0000039C]
-        add eax,[edi+000002E8]
         sub esp,18
         lea eax,[edi+000002D0]
         mov ecx,esp
@@ -129,10 +125,10 @@ function add_object_asm(object_data)
       createthread(newmem)
     ]]
   )
-	
+
   -- SLEEP TO AVOID CRASH
   sleep(1000)
-	
+
   -- RETURN TO NORMAL RUN ROUTINE
   autoAssemble(
     [[
@@ -140,7 +136,7 @@ function add_object_asm(object_data)
         cmp [esi+00000095],al
     ]]
   )
-  
+
 end
 
 -- EXAMPLE
