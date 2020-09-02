@@ -3,8 +3,10 @@ function add_object_asm(object_data)
   -- PAUSE RUN ROUTINE TO AVOID CRASH
   autoAssemble(
     [[
+		
       libcocos2d.cocos2d::CCApplication::run+A3:
         jmp libcocos2d.cocos2d::CCApplication::run+315
+		
     ]]
   )
 
@@ -14,6 +16,7 @@ function add_object_asm(object_data)
   -- MAIN FUNCTION
   autoAssemble(
     [[
+		
       alloc(newmem,]] .. #object_data + 2000 .. [[)
 
       newmem:
@@ -25,7 +28,7 @@ function add_object_asm(object_data)
         pop ebp
         popad
         mov eax,1
-	    ret
+	ret
 
       paste_object:
         mov ecx,[GeometryDash.exe+3222D0]
@@ -114,7 +117,6 @@ function add_object_asm(object_data)
         pop ebx
         mov esp,ebp
         pop ebp
-
         return_end:
           ret 0004
 
@@ -129,6 +131,7 @@ function add_object_asm(object_data)
         db ']] .. object_data .. [[',0
 
       createthread(newmem)
+		
     ]]
   )
 
