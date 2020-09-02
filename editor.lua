@@ -25,7 +25,7 @@ function add_object_asm(object_data)
         pop ebp
         popad
         mov eax,1
-	    ret
+	ret
 
       paste_object:
         mov ecx,[GeometryDash.exe+3222D0]
