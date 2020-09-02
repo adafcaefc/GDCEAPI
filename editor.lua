@@ -9,7 +9,7 @@ function add_object_asm(object_data)
   )
 
   -- SLEEP TO AVOID CRASH
-  sleep(1000)
+  sleep(100)
 
   -- MAIN FUNCTION
   autoAssemble(
@@ -25,14 +25,18 @@ function add_object_asm(object_data)
         pop ebp
         popad
         mov eax,1
-	ret
+	    ret
 
       paste_object:
         mov ecx,[GeometryDash.exe+3222D0]
         add ecx,168
         mov ecx,[ecx]
+        test ecx,ecx
+        je return_end
         add ecx,380
         mov ecx,[ecx]
+        test ecx,ecx
+        je return_end
         push ebp
         mov ebp,esp
         and esp,-08
@@ -110,7 +114,9 @@ function add_object_asm(object_data)
         pop ebx
         mov esp,ebp
         pop ebp
-        ret 0004
+
+        return_end:
+          ret 0004
 
       string_pointer:
         dd object_string
@@ -127,7 +133,7 @@ function add_object_asm(object_data)
   )
 
   -- SLEEP TO AVOID CRASH
-  sleep(1000)
+  sleep(100)
 
   -- RETURN TO NORMAL RUN ROUTINE
   autoAssemble(
