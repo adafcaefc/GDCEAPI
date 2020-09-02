@@ -1,4 +1,5 @@
 function add_object_asm(object_data)
+	
   -- PAUSE RUN ROUTINE TO AVOID CRASH
   autoAssemble(
     [[
@@ -6,8 +7,10 @@ function add_object_asm(object_data)
         jmp libcocos2d.cocos2d::CCApplication::run+315
     ]]
   )
+	
   -- SLEEP TO AVOID CRASH
   sleep(1000)
+	
   -- MAIN FUNCTION
   autoAssemble(
     [[
@@ -126,8 +129,10 @@ function add_object_asm(object_data)
       createthread(newmem)
     ]]
   )
+	
   -- SLEEP TO AVOID CRASH
   sleep(1000)
+	
   -- RETURN TO NORMAL RUN ROUTINE
   autoAssemble(
     [[
